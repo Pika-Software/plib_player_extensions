@@ -21,10 +21,20 @@ do
             model = result
         end
 
+        self.m_PreviousModel = self:GetModel()
+
         ENTITY.SetModel( self, model )
         hook_Run( 'PlayerModelChanged', self, model )
     end
 
+end
+
+function PLAYER:GetPreviousModel()
+    if (self.m_PreviousModel) then
+        return self.m_PreviousModel
+    end
+
+    return 'models/player.mdl'
 end
 
 do
