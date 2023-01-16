@@ -1,11 +1,11 @@
 local ArgAssert = ArgAssert
+local hook_Run = hook.Run
 
 local PLAYER = FindMetaTable( 'Player' )
 
 do
 
     local util_IsValidModel = util.IsValidModel
-    local hook_Run = hook.Run
     local assert = assert
 
     local ENTITY = FindMetaTable( 'Entity' )
@@ -52,6 +52,7 @@ do
         self:SetNWVector( 'Hull Duck Maxs', maxs )
 
         self:SetHullDuckOnServer( mins, maxs )
+        hook_Run( 'PlayerDuckHullChanged', self, mins, maxs )
     end
 
     PLAYER.SetHullOnServer = PLAYER.SetHullOnServer or PLAYER.SetHull
@@ -66,6 +67,7 @@ do
         self:SetNWVector( 'Hull Maxs', maxs )
 
         self:SetHullOnServer( mins, maxs )
+        hook_Run( 'PlayerHullChanged', self, mins, maxs )
     end
 
 end
