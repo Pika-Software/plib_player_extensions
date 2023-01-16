@@ -1,4 +1,4 @@
-# plib_player_extensions
+# Player Extensions
 A pack of methods for easy work with the player entity.
 
 ## Requires
