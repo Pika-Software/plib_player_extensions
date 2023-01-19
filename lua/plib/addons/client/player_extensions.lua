@@ -1,4 +1,4 @@
-hook.Add('PlayerInitialized', 'PLib - Player Hulls Sync', function( ply )
+hook.Add('PlayerInitialized', 'PLib - Player Sync', function( ply )
     ply:SetNWVarProxy('Hull Mins', function( self, _, __, mins )
         self:SetHull( mins, select( -1, self:GetHull() ) )
     end)
@@ -13,5 +13,13 @@ hook.Add('PlayerInitialized', 'PLib - Player Hulls Sync', function( ply )
 
     ply:SetNWVarProxy('Hull Duck Maxs', function( self, _, __, maxs )
         self:SetHullDuck( self:GetHull(), maxs )
+    end)
+
+    ply:SetNWVarProxy('Move Type', function( self, _, __, moveType )
+        self:SetMoveType( moveType )
+    end)
+
+    ply:SetNWVarProxy('Move Collide Type', function( self, _, __, moveCollideType )
+        self:SetMoveCollide( moveCollideType )
     end)
 end)
