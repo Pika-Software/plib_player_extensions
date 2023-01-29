@@ -8,11 +8,11 @@ hook.Add('PlayerInitialized', 'PLib - Player Sync', function( ply )
     end)
 
     ply:SetNWVarProxy('Hull Duck Mins', function( self, _, __, mins )
-        self:SetHullDuck( mins, select( -1, self:GetHull() ) )
+        self:SetHullDuck( mins, select( -1, self:GetHullDuck() ) )
     end)
 
     ply:SetNWVarProxy('Hull Duck Maxs', function( self, _, __, maxs )
-        self:SetHullDuck( self:GetHull(), maxs )
+        self:SetHullDuck( self:GetHullDuck(), maxs )
     end)
 
     ply:SetNWVarProxy('Move Type', function( self, _, __, moveType )
